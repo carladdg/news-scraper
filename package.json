@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Scraping the news using Cheerio and Mongoose",
   "main": "server.js",
-  "scripts": {
-    "test": "mocha"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/carladdg/news-scraper.git"
@@ -23,16 +21,17 @@
     "url": "https://github.com/carladdg/news-scraper/issues"
   },
   "homepage": "https://github.com/carladdg/news-scraper#readme",
-  "devDependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^5.2.0"
-  },
+  "devDependencies": {},
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "mongoose": "^5.1.5",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "request": "^2.87.0"
   }
 }
