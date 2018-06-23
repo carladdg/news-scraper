@@ -81,11 +81,14 @@
         {{/each}}
     </div>
 {{else}}
-    <p>No articles
-        {{#if home}}
-            found. Try hitting Scrape to see what's new!
-        {{else}}
-            saved. Head to the home page to find some faves!
-        {{/if}}
-    </p>
+    <div class="card">
+        <h4 class="card-header"><small>
+            No articles
+            {{#if home}}
+                found. Try hitting Scrape to see what's new!
+            {{else}}
+                saved. Head to the home page to find some faves!
+            {{/if}}
+        </small></h4>
+    </div>
 {{/if}}
