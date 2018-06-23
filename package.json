@@ -4,7 +4,7 @@
   "description": "Scraping the news using Cheerio and Mongoose",
   "main": "server.js",
   "scripts": {
-    "start": "babel-node server.js"
+    "start": "./node_modules/babel-cli/bin/babel-node.js server.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/carladdg/news-scraper#readme",
   "devDependencies": {},
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.18.3",
