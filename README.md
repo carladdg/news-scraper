@@ -9,6 +9,8 @@ You can save articles you like to the "Saved Articles" page so that you can easi
 
 You can also view and leave notes on various articles to organize your thoughts and see what other people think.
 
+See it [live on Heroku](https://news-scraper-nu.herokuapp.com/).
+
 Here's to keeping up with the future! :alien:
 
 ### Technologies Used
