@@ -14,18 +14,17 @@ $(".save, .unsave").on("click", function(event) {
 
 $(".add-note").on("click", function(event) {
     event.preventDefault();
-    const _id = $(this).data("_id");
-    const note = $(`#${_id}-input`).val().trim();
+    const articleId = $(this).data("article-id");
+    const note = $(`#${articleId}-input`).val().trim();
     
     if (note) {
-        $(`#${_id}-input`).val("");
-        $.post("/notes/submit", { _id: _id, note: note }, data => location.reload())
+        $(`#${articleId}-input`).val("");
+        $.post("/notes/submit", { articleId: articleId, note: note }, data => location.reload())
     }
 })
 
 $(".delete-note").on("click", function(event) {
     const noteId = $(this).data("note-id");
-    console.log(noteId);
     $.ajax(`/notes/delete/${noteId}`, {
         type: "DELETE"
     }).then(data => location.reload());

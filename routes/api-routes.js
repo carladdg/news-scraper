@@ -43,7 +43,7 @@ export default app => {
     app.post("/notes/submit", (request, response) => {
         db.Note.create({ body: request.body.note })
         .then(createdNote => {
-            db.Article.findOneAndUpdate({ _id: request.body._id }, { $push: { notes: createdNote._id } }, { new: true })
+            db.Article.findOneAndUpdate({ _id: request.body.articleId }, { $push: { notes: createdNote._id } }, { new: true })
             .then(updatedArticle => response.send("Note added."))
             .catch(error => response.json(error));
         })
