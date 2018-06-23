@@ -30,8 +30,8 @@ const scrapeSite = (serverResponse) => {
                 }
     
                 db.Article.find({ uri: article.uri })
-                .then(found => {
-                    if (!found.length) {
+                .then(foundArticle => {
+                    if (!foundArticle.length) {
                         db.Article.create(article)
                         .catch(error => serverResponse.json(error));
                     }

@@ -1,10 +1,10 @@
 $("#scrape").on("click", function(event) {
-    $.get("/scrape", data => location.reload());
+    $.get("/articles/scrape", data => location.reload());
 })
 
 $(".save, .unsave").on("click", function(event) {
-    const _id = $(this).data("_id");
-    $.ajax(`/save/${_id}`, {
+    const articleId = $(this).data("article-id");
+    $.ajax(`/articles/save/${articleId}`, {
         type: "PUT",
         data: {
             save: $(this).data("save")
@@ -19,6 +19,14 @@ $(".add-note").on("click", function(event) {
     
     if (note) {
         $(`#${_id}-input`).val("");
-        $.post("/submit", { _id: _id, note: note }, data => location.reload())
+        $.post("/notes/submit", { _id: _id, note: note }, data => location.reload())
     }
+})
+
+$(".delete-note").on("click", function(event) {
+    const noteId = $(this).data("note-id");
+    console.log(noteId);
+    $.ajax(`/notes/delete/${noteId}`, {
+        type: "DELETE"
+    }).then(data => location.reload());
 })

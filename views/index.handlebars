@@ -2,7 +2,7 @@
 <h2>For the latest and greatest in startup and technology news</h2>
 
 <button><a href="/">Home</a></button>
-<button><a href="/saved">Saved Articles</a></button>
+<button><a href="/articles/saved">Saved Articles</a></button>
 <button id="scrape">Scrape!</button>
 
 <h3>
@@ -29,10 +29,10 @@
                         {{#if saved}}
                             <button type="button" class="btn btn-secondary" disabled>Article has been saved.</button>
                         {{else}}
-                            <button type="button" class="btn btn-success save" data-_id="{{_id}}" data-save="true">Save Article</button>
+                            <button type="button" class="btn btn-success save" data-article-id="{{_id}}" data-save="true">Save Article</button>
                         {{/if}}
                     {{else}}
-                        <button type="button" class="btn border-success unsave" data-_id="{{_id}}" data-save="false">Remove From Saved</button>
+                        <button type="button" class="btn border-success unsave" data-article-id="{{_id}}" data-save="false">Remove From Saved</button>
                     {{/if}}
                     <button class="btn btn-info" data-toggle="collapse" data-target="#{{id}}" aria-expanded="false" aria-controls="{{_id}}">
                         View Notes
@@ -41,12 +41,27 @@
                 <div id="{{_id}}" class="collapse hide" aria-labelledby="{{_id}}-block" data-parent="#accordion">
                     <div class="card-body">
                         {{#if notes}}
-                            {{#each notes}}
-                                <p>{{body}}</p>
-                            {{/each}}
+                            <div class="card">
+                                <div class="card-header">
+                                    Notes
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    {{#each notes}}
+                                        <li class="list-group-item d-flex justify-content-between">
+                                            {{body}}
+                                            <button type="button" class="btn btn-danger btn-sm delete-note" data-note-id="{{_id}}" data-article-id="{{../_id}}">X</button>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
                         {{else}}
-                            <p>There are no notes for this article yet. Why don't you write the first one?</p>
+                            <div class="card">
+                                <div class="card-header">
+                                    There are no notes for this article yet. Why don't you write the first one?
+                                </div>
+                            </div>           
                         {{/if}}
+                        <br>
                         <form>
                             <div class="form-group">
                                 <label for="noteInput">Add a Note:</label>
